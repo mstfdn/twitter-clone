@@ -1,55 +1,48 @@
 import { NavLink } from "react-router-dom";
 import classNames from "classnames";
+import { mainMenu } from "../../../../utils/consts";
 
 export default function Menu() {
   return (
     <nav className="mt-0.5 mb-1">
-      <NavLink to="/" className="py-1 block group">
-        {({ isActive }) => (
-          <div
-            className={classNames(
-              "p-3 rounded-full transition-colors inline-flex pr-4 items-center gap-5 group-hover:bg-[#eff3f41a]",
-              { "font-bold": isActive }
-            )}
-          >
-            <svg viewBox="0 0 24 24" width={26.25} height={26.25} className="block">
-              <path
-                fill={isActive ? "#e7e9ea" : "none"} 
-                stroke="#e7e9ea" 
-                strokeWidth="2"
-                d="M21.591 7.146L12.52 1.157c-.316-.21-.724-.21-1.04 0l-9.071 5.99c-.26.173-.409.456-.409.757v13.183c0 .502.418.913.929.913H9.14c.51 0 .929-.41.929-.913v-7.075h3.909v7.075c0 .502.417.913.928.913h6.165c.511 0 .929-.41.929-.913V7.904c0-.301-.158-.584-.408-.758z"
-              />
-            </svg>
-            <div className="pr-4 text-xl">Anasayfa</div>
-          </div>
-        )}
-      </NavLink>
-
-      <NavLink to="/explore" className="py-1 block group">
-        {({ isActive }) => (
-          <div
-            className={classNames(
-              "p-3 rounded-full transition-colors inline-flex pr-4 items-center gap-5 group-hover:bg-[#eff3f41a]",
-              { "font-bold": isActive }
-            )}
-          >
-            <svg 
-              viewBox="0 0 24 24" 
-              width={26.25} 
-              height={26.25} 
-              className="block"
-              fill="#e7e9ea" // Her durumda içi dolu
-              stroke={isActive ? "#e7e9ea" : "none"} // Aktif değilse stroke kaldır
-              strokeWidth={isActive ? "1" : "0"} // Aktifken kalın çizgi
+      {mainMenu.map((menu) => (
+        <NavLink key={menu.path} to={menu.path} className="py-[3px] block group">
+          {({ isActive }) => (
+            <div
+              className={classNames(
+                "p-3 rounded-full transition-colors inline-flex pr-4 items-center gap-5 group-hover:bg-[#eff3f41a]",
+                { "font-bold": isActive }
+              )}
             >
-              <path
-                d="M10.25 4.25c-3.314 0-6 2.686-6 6s2.686 6 6 6c1.657 0 3.155-.67 4.243-1.757 1.087-1.088 1.757-2.586 1.757-4.243 0-3.314-2.686-6-6-6zm-9 6c0-4.971 4.029-9 9-9s9 4.029 9 9c0 1.943-.617 3.744-1.664 5.215l4.475 4.474-2.122 2.122-4.474-4.475c-1.471 1.047-3.272 1.664-5.215 1.664-4.971 0-9-4.029-9-9z"
-              />
-            </svg>
-            <div className="pr-4 text-xl">Keşfet</div>
-          </div>
-        )}
-      </NavLink>
+              <div className="w-[26.25px] h-[26.25px] relative">
+                {menu?.notification && (
+                  <span className="w-[18px] h-[18px] rounded-full bg-[#1d9bf0] absolute -top-1.5 -right-1 flex items-center justify-center text-[11px]">
+                    {menu?.notification}
+                  </span>
+                )}
+                {isActive ? menu.icon.active : menu.icon.passive}
+              </div>
+              <div className="pr-4 text-xl">{menu.title}</div>
+            </div>
+          )}
+        </NavLink>
+        //M3.75 12c0-4.56 3.69-8.25 8.25-8.25s8.25 3.69 8.25 8.25-3.69 8.25-8.25 8.25S3.75 16.56 3.75 12zM12 1.75C6.34 1.75 1.75 6.34 1.75 12S6.34 22.25 12 22.25 22.25 17.66 22.25 12 17.66 1.75 12 1.75zm-4.75 11.5c.69 0 1.25-.56 1.25-1.25s-.56-1.25-1.25-1.25S6 11.31 6 12s.56 1.25 1.25 1.25zm9.5 0c.69 0 1.25-.56 1.25-1.25s-.56-1.25-1.25-1.25-1.25.56-1.25 1.25.56 1.25 1.25 1.25zM13.25 12c0 .69-.56 1.25-1.25 1.25s-1.25-.56-1.25-1.25.56-1.25 1.25-1.25 1.25.56 1.25 1.25z
+      ))}
+      <button className="py-[3px] block group">
+
+            <div className=
+                "p-3 rounded-full transition-colors inline-flex pr-4 items-center gap-5 group-hover:bg-[#eff3f41a]">
+              <div className="w-[26.25px] h-[26.25px] relative">
+              <svg viewBox="0 0 24 24" width={26.25} height={26.25}>
+              <path d="M3.75 12c0-4.56 3.69-8.25 8.25-8.25s8.25 3.69 8.25 8.25-3.69 8.25-8.25 8.25S3.75 16.56 3.75 12zM12 1.75C6.34 1.75 1.75 6.34 1.75 12S6.34 22.25 12 22.25 22.25 17.66 22.25 12 17.66 1.75 12 1.75zm-4.75 11.5c.69 0 1.25-.56 1.25-1.25s-.56-1.25-1.25-1.25S6 11.31 6 12s.56 1.25 1.25 1.25zm9.5 0c.69 0 1.25-.56 1.25-1.25s-.56-1.25-1.25-1.25-1.25.56-1.25 1.25.56 1.25 1.25 1.25zM13.25 12c0 .69-.56 1.25-1.25 1.25s-1.25-.56-1.25-1.25.56-1.25 1.25-1.25 1.25.56 1.25 1.25z"
+              fill="#e7e9ea"/>
+              </svg>
+              </div>
+              <div className="pr-4 text-xl">
+                Daha Fazla
+              </div>
+            </div>
+        </button>
     </nav>
   );
 }

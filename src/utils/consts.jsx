@@ -1,4 +1,11 @@
+import store from "~/store";
+
+const states = store.getState()
+
+
+
 export const mainMenu = [
+  //Keşfet
     {
       path: '/',
       title: 'Anasayfa',
@@ -25,6 +32,7 @@ export const mainMenu = [
         )
       }
     },
+    //Keşfet
     {
       path: '/explore',
       title: 'Keşfet',
@@ -61,6 +69,7 @@ export const mainMenu = [
         )
       }
     },
+    //Bildirimler
     {
       path: '/notifications',
       title: 'Bildirimler',
@@ -98,6 +107,7 @@ export const mainMenu = [
         )
       }
     },
+      //Mesajlar
     {
         path: '/messages',
         title: 'Mesajlar',
@@ -133,6 +143,7 @@ export const mainMenu = [
           )
         }
       },
+      //Listeler
       {
         path: '/lists',
         title: 'Listeler',
@@ -168,9 +179,10 @@ export const mainMenu = [
           )
         }
       },
+      //Yer İşaretleri
       {
         path: '/bookmarks',
-        title: 'Bookmarks',
+        title: 'Yer İşaretleri',
         icon: {
           active: (
             <svg 
@@ -204,6 +216,7 @@ export const mainMenu = [
           )
         }
       },
+      //approved
       {
         path: '/approved',
         title: 'Onaylı Kuruluşlar',
@@ -238,8 +251,9 @@ export const mainMenu = [
           )
         }
       },
+      //profile
       {
-        path: '/profile',
+        path: `/${states?.auth?.currentAccount?.username}`,
         title: 'Profil',
         icon: {
           active: (

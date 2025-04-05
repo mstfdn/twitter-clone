@@ -4,9 +4,12 @@ import { mainMenu } from "../../../../utils/consts";
 import More from "./more";
 import New from "./new";
 
+
 export default function Menu() {
+
+  
   return (
-    <nav className="mt-0.5 mb-1">
+    <nav className="mt-0.5 mb-1" >
       {mainMenu.map((menu) => (
         <NavLink key={menu.path} to={menu.path} className="py-[3px] block group">
           {({ isActive }) => (
@@ -31,6 +34,8 @@ export default function Menu() {
       ))}
       <More/> 
       <New/>
+
+      
     </nav>
   );
 }

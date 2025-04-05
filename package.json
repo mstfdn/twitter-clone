@@ -11,11 +11,13 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
+    "@reduxjs/toolkit": "^2.6.1",
     "@tailwindcss/vite": "^4.0.17",
     "classnames": "^2.5.1",
     "prop-types": "^15.8.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-redux": "^9.2.0",
     "react-router-dom": "^7.4.1"
   },
   "devDependencies": {
